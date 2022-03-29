@@ -13,6 +13,8 @@ header {
     padding: 60px;
   }
   
-  #quizForm {
+  #quizForm, #nextBtn {
       visibility: hidden;
   }
+
+  
