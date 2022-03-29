@@ -6,6 +6,7 @@ var choice1=document.getElementById('choice1');
 var choice2=document.getElementById('choice2');
 var choice3=document.getElementById('choice3')
 var startBtn=document.getElementById('startBtn')
+var timeLeft=document.getElementById('timer')
 
 
 
@@ -65,6 +66,7 @@ var questionList = [
 var scores =0;
 var i=0;
 var q = questionList[i];
+var questionTime=10;
 
 function quizGenerator() {
     currentQuestion.innerHTML="<p>"+ q.question+"</p>";
@@ -96,7 +98,14 @@ startBtn.addEventListener('click', function() {
     startBtn.style.visibility='hidden';
     quizGenerator();
     quizContent.style.visibility='visible'
-    
+    var timer=setInterval(function(){
+        if(questionTime<=0){
+            clearInterval(timer);
+        } else {
+       timeLeft.innerHTML=questionTime+' seconds remaining';}
+       questionTime -=1
+
+    },1000)
 })
 
 submitBtn.addEventListener('click', function(event){
